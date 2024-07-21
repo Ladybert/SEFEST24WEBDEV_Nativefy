@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Nativefy - Marketplace Jasa Andalan Anak Muda') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -18,7 +18,7 @@
     </head>
     <body class="font-sans antialiased">
     <!-- Sidebar -->
-        <div class="md:flex hidden px-6 py-8 md:py-0 md:px-0">
+        <div class="md:flex px-6 py-8 md:py-0 md:px-0">
             <div class="md:w-1/8 bg-white h-screen py-4 fixed border border-r-gray-10 md:flex-col items-center justify-between md:flex hidden">
                 <div class="flex items-center space-x-2 mb-8">
                     <div class="bg-gray-800 rounded-full">
