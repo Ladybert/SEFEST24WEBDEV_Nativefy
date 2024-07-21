@@ -16,7 +16,7 @@ Route::get('/offline', function () {
 })->middleware(['auth', 'verified'])->name('offline');
 
 Route::get('/checkout', function () {
-    return view('checkout');
+    return view('checkout/checkout');
 })->middleware(['auth', 'verified'])->name('checkout');
 
 Route::middleware('auth')->group(function () {
