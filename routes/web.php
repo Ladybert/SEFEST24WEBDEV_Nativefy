@@ -8,16 +8,20 @@ Route::get('/', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/online', function () {
-    return view('home/online');
+    return view('services/online/index');
 })->middleware(['auth', 'verified'])->name('online');
 
 Route::get('/offline', function () {
-    return view('home/offline');
+    return view('services/offline/index');
 })->middleware(['auth', 'verified'])->name('offline');
 
 Route::get('/checkout', function () {
     return view('checkout/checkout');
 })->middleware(['auth', 'verified'])->name('checkout');
+
+Route::get('/cart', function () {
+    return view('cart');
+})->middleware(['auth', 'verified'])->name('cart');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
