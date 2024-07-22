@@ -134,24 +134,25 @@
                 const allLink = document.getElementById('all');
                 const onlineLink = document.getElementById('online');
                 const offlineLink = document.getElementById('offline');
-
+            
                 // Remove active class from all links
                 allLink.classList.remove('active');
                 onlineLink.classList.remove('active');
                 offlineLink.classList.remove('active');
-
+            
                 // Add active class to the current link
                 if (currentPath === '/') {
                     allLink.classList.add('active');
-                } else if (currentPath === '/online') {
+                } else if (currentPath.includes('/online')) {
                     onlineLink.classList.add('active');
-                } else if (currentPath === '/offline') {
+                } else if (currentPath.includes('/offline')) {
                     offlineLink.classList.add('active');
                 }
             }
-
+            
             // Call the function on page load
             window.onload = setActiveLink;
+
         </script>
 
     </body>
