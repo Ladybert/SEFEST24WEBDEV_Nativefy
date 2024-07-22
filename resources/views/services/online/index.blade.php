@@ -2,7 +2,7 @@
     <!-- Banner -->
 <div class="banner bg-purple-200  rounded-xl mb-8 mt-5 overflow-hidden">
     <div class="banner-item w-full h-full">
-        <img src="{{ asset('images/banner/all-banner.png') }}" class="w-full h-full" alt="banner">
+        <img src="{{ asset('images/banner/online-banner.png') }}" class="w-full h-full" alt="banner">
     </div>
 </div>
     <!-- Product Filters -->
