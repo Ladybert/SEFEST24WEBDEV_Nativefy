@@ -7,6 +7,10 @@
 
     <title>{{ config('app.name', 'Nativefy - Marketplace Jasa Andalan Anak Muda') }}</title>
 
+    <meta name="description" content="Discover top services on Nativefy. Choose from categories like Design, Household, Automotive, and Electronics.">
+    <meta name="keywords" content="Nativefy, services, marketplace, design, household, automotive, electronics">
+    <meta name="author" content="Nativefy Team">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -27,12 +31,12 @@
 </head>
 <body class="font-sans antialiased h-screen bg-white relative">
     <header>
-        <div class="navbar border-b border-gray-200 px-4 py-2 fixed left-0 right-0 top-0 bg-white z-50">
+        <nav class="navbar border-b border-gray-200 px-4 py-2 fixed left-0 right-0 top-0 bg-white z-50">
             <div class="navbar-wrapper flex justify-between items-center">
                 <!-- Desktop Navbar -->
                 <div class="hidden lg:flex lg:items-center lg:gap-8">
                     <a href="/" class="navbar-logo">
-                        <img class="w-8" src="{{ asset('images/logo/app-logo.png') }}" alt="logo.png">
+                        <img class="w-8" src="{{ asset('images/logo/app-logo.png') }}" alt="Nativefy Logo">
                     </a>
                     <div class="navbar-links flex gap-6">
                         <a href="/" id="all" class="navbar-link">All</a>
@@ -41,40 +45,34 @@
                     </div>
                 </div>
 
-                <div class="navbar-right flex items-center gap-4">
+                <div class="navbar-right flex items-center gap-8">
                     <div class="search-input hidden lg:block">
-                        <form action="">
-                            <input type="text" placeholder="Cari layanan..." class="navbar-search h-9 rounded-md border w-64 border-gray-300">
+                        <form action="/search" method="get">
+                            <input type="text" name="query" placeholder="Cari layanan..." class="navbar-search h-9 rounded-md border w-64 border-gray-300">
                         </form>
                     </div>
                     <a href="/cart" class="navbar-cart">
-                        <i class="fas fa-shopping-cart text-xl hover:transform hover:scale-125 transition-all"></i>
+                        <i class="fas fa-shopping-cart text-md hover:transform hover:scale-125 transition-all"></i>
                     </a>
                     <a href="/chat" class="navbar-chat">
-                        <i class="fas fa-comment text-xl hover:transform hover:scale-125 transition-all"></i>
+                        <i class="fas fa-comment text-md hover:transform hover:scale-125 transition-all"></i>
                     </a>
                     <div class="auth flex gap-2 relative">
                         @guest
-                            <a href="{{ route('login') }}" class="navbar-login py-2 px-4 rounded-md">
-                                Login
-                            </a>
-                            <a href="{{ route('register') }}" class="navbar-register py-2 px-4 rounded-md bg-black text-white">
-                                Register
-                            </a>
+                            <a href="{{ route('login') }}" class="navbar-login py-2 px-4 rounded-md">Login</a>
+                            <a href="{{ route('register') }}" class="navbar-register py-2 px-4 rounded-md bg-black text-white">Register</a>
                         @else
                             <button id="profileButton" class="flex items-center py-2 px-4 rounded-md">
                                 <img src="{{ asset('images/logo/app-logo.png') }}" alt="Profile Photo" class="w-8 h-8 rounded-full">
                             </button>
                             <div id="dropdownMenu" class="hidden absolute right-0 mt-16 w-48 bg-white rounded-md border border-gray-300 z-10">
                                 <a href="{{ url('/profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                    <i class="fas fa-user mr-2"></i>
-                                    My Profile
+                                    <i class="fas fa-user mr-2"></i> My Profile
                                 </a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-red-500">
-                                        <i class="fas fa-sign-out-alt mr-2"></i>
-                                        Logout
+                                        <i class="fas fa-sign-out-alt mr-2"></i> Logout
                                     </button>
                                 </form>
                             </div>
@@ -87,13 +85,13 @@
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
-        </div>
+        </nav>
 
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
             <div class="flex justify-between items-center p-4 border-b border-gray-200">
                 <a href="/" class="navbar-logo">
-                    <img class="w-8" src="{{ asset('images/logo/app-logo.png') }}" alt="logo.png">
+                    <img class="w-8" src="{{ asset('images/logo/app-logo.png') }}" alt="Nativefy Logo">
                 </a>
                 <button id="closeMobileMenu" class="text-gray-800">
                     <i class="fas fa-times text-xl"></i>
@@ -104,24 +102,16 @@
                 <a href="/online" id="onlineMobile" class="block py-2 text-lg">Online</a>
                 <a href="/offline" id="offlineMobile" class="block py-2 text-lg">Offline</a>
                 <div class="mt-4">
-                    <a href="/cart" class="block py-2 text-lg">
-                        <i class="fas fa-shopping-cart mr-2"></i> Cart
-                    </a>
-                    <a href="/chat" class="block py-2 text-lg">
-                        <i class="fas fa-comment mr-2"></i> Chat
-                    </a>
+                    <a href="/cart" class="block py-2 text-md"><i class="fas fa-shopping-cart mr-4"></i> Cart</a>
+                    <a href="/chat" class="block py-2 text-md"><i class="fas fa-comment mr-4"></i> Chat</a>
                     @guest
                         <a href="{{ route('login') }}" class="block py-2 text-lg">Login</a>
                         <a href="{{ route('register') }}" class="block py-2 text-lg bg-black text-white">Register</a>
                     @else
-                        <a href="/profile" class="block py-2 text-lg">
-                            <i class="fas fa-user mr-2"></i> My Profile
-                        </a>
+                        <a href="/profile" class="block py-2 text-lg"><i class="fas fa-user mr-2"></i> My Profile</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button type="submit" class="block w-full py-2 text-left text-lg text-red-500">
-                                <i class="fas fa-sign-out-alt mr-2"></i> Logout
-                            </button>
+                            <button type="submit" class="block w-full py-2 text-left text-lg text-red-500"><i class="fas fa-sign-out-alt mr-2"></i> Logout</button>
                         </form>
                     @endguest
                 </div>
@@ -140,7 +130,7 @@
             <div class="flex justify-between items-center">
                 <div class="footer-left flex items-center gap-8">
                     <a href="/" class="footer-logo">
-                        <img class="w-8" src="{{ asset('images/logo/app-logo-black.png') }}" alt="logo.png">
+                        <img class="w-8" src="{{ asset('images/logo/app-logo-black.png') }}" alt="Nativefy Logo">
                     </a>
                     <div class="footer-links flex gap-6">
                         <a href="/" class="footer-link">Home</a>
@@ -150,18 +140,10 @@
                     </div>
                 </div>
                 <div class="footer-right flex items-center gap-4">
-                    <a href="https://www.facebook.com" target="_blank" class="footer-social">
-                        <i class="fab fa-facebook text-2xl"></i>
-                    </a>
-                    <a href="https://www.twitter.com" target="_blank" class="footer-social">
-                        <i class="fab fa-twitter text-2xl"></i>
-                    </a>
-                    <a href="https://www.instagram.com" target="_blank" class="footer-social">
-                        <i class="fab fa-instagram text-2xl"></i>
-                    </a>
-                    <a href="https://www.linkedin.com" target="_blank" class="footer-social">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
+                    <a href="https://www.facebook.com" target="_blank" class="footer-social"><i class="fab fa-facebook text-2xl"></i></a>
+                    <a href="https://www.twitter.com" target="_blank" class="footer-social"><i class="fab fa-twitter text-2xl"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="footer-social"><i class="fab fa-instagram text-2xl"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" class="footer-social"><i class="fab fa-linkedin text-2xl"></i></a>
                 </div>
             </div>
             <div class="footer-bottom text-center mt-8">
