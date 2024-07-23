@@ -18,7 +18,7 @@
 </head>
 <body class="font-sans antialiased">
     <header>
-        <div class="navbar border-b border-gray-200 px-8 py-2 fixed left-0 right-0 top-0 bg-white z-50">
+        <div class="navbar border-b border-gray-200 px-4 py-2 fixed left-0 right-0 top-0 bg-white z-50">
             <div class="navbar-wrapper flex justify-between items-center">
                 <!-- Desktop Navbar -->
                 <div class="hidden lg:flex lg:items-center lg:gap-8">
@@ -32,11 +32,8 @@
                     </div>
                 </div>
 
-                <div class="navbar-right flex justify-between items-center gap-4">
-                    <button id="mobileMenuButton" class="lg:hidden flex items-center text-gray-800">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                    <div class="search-input">
+                <div class="navbar-right flex items-center gap-4">
+                    <div class="search-input hidden lg:block">
                         <form action="">
                             <input type="text" placeholder="Cari layanan..." class="navbar-search h-9 rounded-md border w-64 border-gray-300">
                         </form>
@@ -83,7 +80,9 @@
                 </div>
 
                 <!-- Mobile Navbar Toggle Button -->
-
+                <button id="mobileMenuButton" class="lg:hidden flex items-center text-gray-800">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
         </div>
 
