@@ -19,10 +19,9 @@
     <body class="font-sans antialiased h-screen">
     <!-- Sidebar -->
         <div class="md:flex md:py-0 md:px-0">
-            <x-sidebar />
 
         <!-- Main Content -->
-            <div class="w-full h-screen p-0 md:ps-[75px] ps-[0px] bg-white">
+            <div class="w-full h-screen p-0  ps-[0px] bg-white">
                 {{ $slot }}
             </div>
 

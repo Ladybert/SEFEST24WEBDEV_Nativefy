@@ -1,8 +1,11 @@
 <x-chat-layouts>
-<div class="flex flex-col md:flex-row h-full pb-20 md:pb-0">
+<div class="flex flex-col md:flex-row h-full md:pb-0">
     <!-- Sidebar for Chat Rooms -->
     <div class="md:w-1/4 bg-white md:border-r border  border-gray-300 overflow-y-auto">
-        <div class="p-4 hidden md:block">
+        <div class="p-4 md:flex items-center gap-2 hidden md:block">
+            <a href="/">
+                <i class="fas fa-chevron-left"></i>
+            </a>
             <h2 class="text-xl font-semibold">Chats</h2>
         </div>
         <div class="p-4 space-y-4 hidden md:block">

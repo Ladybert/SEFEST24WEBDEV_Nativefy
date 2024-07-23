@@ -1,4 +1,4 @@
-<x-cart-layouts>
+<x-app-layout>
     <div class="page-header">
         <div class="header-wrappper">
             <div class="header-title">
@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-</x-cart-layouts>
+</x-app-layout>
 
 <script>
     document.querySelectorAll('.cart-delete').forEach(button => {
