@@ -31,6 +31,10 @@ Route::get('/chat', function () {
     return view('chat');
 })->middleware(['auth', 'verified'])->name('chat');
 
+Route::get('/chat/home', function () {
+    return view('chat-room');
+})->middleware(['auth', 'verified'])->name('chat');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

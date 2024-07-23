@@ -1,4 +1,4 @@
-<div class="md:w-1/8 bg-white h-screen py-4 fixed border border-r-gray-10 md:flex-col items-center justify-between md:flex hidden">
+<div class="md:w-1/8 bg-white h-screen py-4 fixed border-r border-gray-300 md:flex flex-col items-center justify-between hidden">
     <div class="flex items-center space-x-2 mb-8">
         <div class="bg-gray-800 rounded-full">
             <img src="{{ asset('images/logo/app-logo.png') }}" class="w-8" alt="logo.png">
@@ -34,6 +34,41 @@
         </li>
         <li>
             <a href="#">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Bottom Bar for Mobile -->
+<div class="w-full bg-white py-2 fixed bottom-0 left-0 right-0 border-t border-gray-300 flex md:hidden justify-between" style="z-index: 99999">
+    <ul class="flex justify-between w-full">
+        <li class="w-1/5 text-center">
+            <a href="/" class="p-3 block {{ request()->is('/') || request()->is('checkout*') ? 'border-b-4 border-black' : '' }}">
+                <i class="fas fa-home"></i>
+            </a>
+        </li>
+        <li class="w-1/5 text-center">
+            <a href="/cart" class="p-3 block {{ request()->is('cart') ? 'border-b-4 border-black' : '' }}">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        </li>
+        <li class="w-1/5 text-center">
+            <a href="/chat/home" class="p-3 block {{ request()->is('chat/home') || request()->is('chat')s ? 'border-b-4 border-black' : '' }}">
+                <i class="fas fa-comment"></i>
+            </a>
+        </li>
+        <li class="w-1/5 text-center">
+            <a href="/profile" class="p-3 block">
+                <div class="avatar inline-block">
+                    <div class="w-6 rounded-full">
+                        <img src="https://t3.ftcdn.net/jpg/02/33/46/24/360_F_233462402_Fx1yke4ng4GA8TJikJZoiATrkncvW6Ib.jpg" />
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="w-1/5 text-center">
+            <a href="#" class="p-3 block">
                 <i class="fas fa-sign-out-alt"></i>
             </a>
         </li>

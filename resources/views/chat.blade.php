@@ -1,8 +1,8 @@
 <x-chat-layouts>
-<div class="flex flex-col md:flex-row h-full">
+<div class="flex flex-col md:flex-row h-full pb-20 md:pb-0">
     <!-- Sidebar for Chat Rooms -->
     <div class="md:w-1/4 bg-white md:border-r border  border-gray-300 overflow-y-auto">
-        <div class="p-4">
+        <div class="p-4 hidden md:block">
             <h2 class="text-xl font-semibold">Chats</h2>
         </div>
         <div class="p-4 space-y-4 hidden md:block">
@@ -28,6 +28,9 @@
         <!-- Header -->
         <div class="flex items-center justify-between p-4 bg-white border-b border-gray-300">
             <div class="flex items-center">
+                <a href="/chat/home">
+                    <i class="fa-solid fa-chevron-left mr-4"></i>
+                </a>
                 <img class="w-10 h-10 rounded-full" src="https://via.placeholder.com/150" alt="Profile">
                 <div class="ml-3">
                     <p class="font-semibold">Seller</p>
