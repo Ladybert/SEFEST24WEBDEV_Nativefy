@@ -1,19 +1,35 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingpageController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::resource('admin', AdminController::class)->middleware(['auth', 'verified','admin']);
+
+Route::resource('dashboard', DashboardController::class)->middleware(['auth', 'verified']);
+
+Route::resource('/', LandingpageController::class);
+Route::get('/',[LandingpageController::class, 'index'])->name('landingpage.index');
+
+Route::get('/', [SearchController::class, 'index'])->name('home');
 
 Route::get('/online', function () {
     return view('home/online');
-})->middleware(['auth', 'verified'])->name('online');
+})->name('online');
 
 Route::get('/offline', function () {
     return view('home/offline');
-})->middleware(['auth', 'verified'])->name('offline');
+})->name('offline');
+
+
+// Route::resource('online', OnlineController::class);
+
+// Route::resource('offline', OfflineController::class);
 
 Route::get('/checkout', function () {
     return view('checkout/checkout');
