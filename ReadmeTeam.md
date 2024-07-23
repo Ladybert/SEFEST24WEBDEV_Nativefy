@@ -40,7 +40,11 @@ php artisan migrate
 ```
 php artisan db:seed
 ```
-10. Langkah terakhir tinggal jalankan proyek nya saja, jangan lupa untuk menghidupkan server apache nya juga ya bila menggunakan xampp
+10. Jalankan juga perintah berikut, agar vite nya jalan
+```
+npm run dev
+```
+11. Langkah terakhir tinggal jalankan proyek nya saja, jangan lupa untuk menghidupkan server apache nya juga ya bila menggunakan xampp
 ```
 php artisan serve
 ```
