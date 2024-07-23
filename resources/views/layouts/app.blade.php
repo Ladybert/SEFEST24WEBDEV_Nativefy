@@ -53,7 +53,7 @@
                     <a href="/chat" class="navbar-chat">
                         <i class="fas fa-comment text-xl hover:transform hover:scale-125 transition-all"></i>
                     </a>
-                    <div class="auth flex gap-2">
+                    <div class="auth flex gap-2 relative">
                         @guest
                             <a href="{{ route('login') }}" class="navbar-login py-2 px-4 rounded-md">
                                 Login
@@ -62,27 +62,21 @@
                                 Register
                             </a>
                         @else
-                            <div class="relative">
-                                <button id="profileButton" class="flex items-center py-2 px-4 rounded-md">
-                                    <img src="{{ asset('images/logo/app-logo.png') }}" alt="Profile Photo" class="w-8 h-8 rounded-full">
-                                </button>
-                                <div id="dropdownMenu" class="hidden absolute right-0 mt-4 w-48 bg-white rounded-md border border-gray-300 z-10">
-                                    <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        <i class="fas fa-user mr-2"></i>
-                                        My Profile
-                                    </a>
-                                    <a href="/cart" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        <i class="fas fa-shopping-cart mr-2"></i>
-                                        Cart
-                                    </a>
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-red-500">
-                                            <i class="fas fa-sign-out-alt mr-2"></i>
-                                            Logout
-                                        </button>
-                                    </form>
-                                </div>
+                            <button id="profileButton" class="flex items-center py-2 px-4 rounded-md">
+                                <img src="{{ asset('images/logo/app-logo.png') }}" alt="Profile Photo" class="w-8 h-8 rounded-full">
+                            </button>
+                            <div id="dropdownMenu" class="hidden absolute right-0 mt-16 w-48 bg-white rounded-md border border-gray-300 z-10">
+                                <a href="{{ url('/profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    <i class="fas fa-user mr-2"></i>
+                                    My Profile
+                                </a>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-red-500">
+                                        <i class="fas fa-sign-out-alt mr-2"></i>
+                                        Logout
+                                    </button>
+                                </form>
                             </div>
                         @endguest
                     </div>
@@ -210,6 +204,8 @@
             var mobileMenuButton = document.getElementById('mobileMenuButton');
             var closeMobileMenuButton = document.getElementById('closeMobileMenu');
             var mobileMenu = document.getElementById('mobileMenu');
+            var profileButton = document.getElementById('profileButton');
+            var dropdownMenu = document.getElementById('dropdownMenu');
 
             mobileMenuButton.addEventListener('click', function () {
                 mobileMenu.classList.remove('-translate-x-full');
@@ -223,25 +219,37 @@
                 if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
                     mobileMenu.classList.add('-translate-x-full');
                 }
+
+                // Close the dropdown if clicking outside of it
+                if (!dropdownMenu.contains(e.target) && !profileButton.contains(e.target)) {
+                    dropdownMenu.classList.add('hidden');
+                }
             });
+
+            profileButton.addEventListener('click', function () {
+                dropdownMenu.classList.toggle('hidden');
+            });
+
+            // Optional: handle closing the dropdown when an item is clicked
+            dropdownMenu.addEventListener('click', function (e) {
+                if (e.target.closest('form') || e.target.closest('a')) {
+                    dropdownMenu.classList.add('hidden');
+                }
+            });
+
+            const carousel = document.getElementById('carousel');
+            const totalWidth = carousel.scrollWidth;
+            const itemWidth = carousel.children[0].clientWidth;
+            let currentIndex = 0;
+
+            function scrollCarousel() {
+                currentIndex = (currentIndex + 1) % carousel.children.length;
+                const offset = itemWidth * currentIndex;
+                carousel.style.transform = `translateX(-${offset}px)`;
+            }
+
+            setInterval(scrollCarousel, 3800);
         });
-
-        const carousel = document.getElementById('carousel');
-        const totalWidth = carousel.scrollWidth;
-        const itemWidth = carousel.children[0].clientWidth;
-        let currentIndex = 0;
-
-        function scrollCarousel() {
-            currentIndex = (currentIndex + 1) % carousel.children.length;
-            const offset = itemWidth * currentIndex;
-            carousel.style.transform = `translateX(-${offset}px)`;
-        }
-
-        setInterval(scrollCarousel, 3800);
     </script>
-
-
-
-
 </body>
 </html>

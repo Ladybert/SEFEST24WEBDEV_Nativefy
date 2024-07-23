@@ -5,15 +5,15 @@
                 <h1 class="text-2xl font-bold">Semua Layanan yang bersifat "Offline"</h1>
             </div>
 
-            <div class="category-selector overflow-x-auto mt-4 py-2">
-                <div class="flex space-x-4">
-                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 1</a>
-                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 2</a>
-                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 3</a>
-                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 4</a>
-                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 5</a>
-                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 6</a>
-                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 7</a>
+            <div class="category-selector overflow-x-auto mt-4">
+                <div class="flex gap-2">
+                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 1</a>
+                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 2</a>
+                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 3</a>
+                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 4</a>
+                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 5</a>
+                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 6</a>
+                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 7</a>
                     <!-- Add more categories as needed -->
                 </div>
             </div>
