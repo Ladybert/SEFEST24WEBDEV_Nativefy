@@ -14,16 +14,15 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <style>
-        </style>
+
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased h-screen">
     <!-- Sidebar -->
-        <div class="md:flex px-6 py-8 md:py-0 md:px-0">
+        <div class="md:flex md:py-0 md:px-0">
             <x-sidebar />
 
         <!-- Main Content -->
-            <div class="w-full md:p-5 p-0 md:ps-24 ps-[0px] bg-white">
+            <div class="w-full h-screen p-0 md:ps-[75px] ps-[0px] bg-white">
                 {{ $slot }}
             </div>
 
@@ -59,7 +58,7 @@
 
         </script>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
         <script>
             AOS.init();

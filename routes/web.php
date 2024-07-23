@@ -27,6 +27,10 @@ Route::get('/cart', function () {
     return view('cart');
 })->middleware(['auth', 'verified'])->name('cart');
 
+Route::get('/chat', function () {
+    return view('chat');
+})->middleware(['auth', 'verified'])->name('chat');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
