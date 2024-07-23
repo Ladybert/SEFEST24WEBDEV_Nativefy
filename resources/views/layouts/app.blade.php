@@ -18,91 +18,122 @@
         </style>
     </head>
     <body class="font-sans antialiased">
-    <!-- Sidebar -->
-        <div class="md:flex px-6 py-8 md:py-0 md:px-0">
-            <x-sidebar />
-
-        <!-- Main Content -->
-            <div class="md:w-4/6 w-full md:p-5 p-0 md:ps-24 ps-[0px] bg-white">
-                <div class="flex justify-between items-center mb-8">
-                    <div class="flex items-center space-x-8">
-                        <a id="all" class="nav-link hover:underline-offset-8 hover:underline transition-all" href="/">All</a>
-                        <a id="online" class="nav-link hover:underline-offset-8 hover:underline transition-all" href="/online">Online</a>
-                        <a id="offline" class="nav-link hover:underline-offset-8 hover:underline transition-all" href="/offline">Offline</a>
-                    </div>
-                    <input type="text" class="p-2 border rounded-xl w-1/2" placeholder="Search for awesome">
-                </div>
-                {{ $slot }}
-            </div>
-
-        <!-- Order List -->
-            <div class="md:w-2/6 w-[0px] bg-white h-screen p-7 fixed right-0 border border-l-gray-100 md:block hidden">
-                <div class="advistory">
-                    <div class="ads-title">
-                        <h1 class="font-bold text-xl mb-4">Layanan teratas di Surabaya</h1>
-                    </div>
-                    <div class="ads-list overflow-y-auto h-96 space-y-4 rounded-lg no-scrollbar">
-                        <a href="#" class="ads-card flex items-center gap-4 border border-gray-200 rounded-lg p-2 hover:bg-gray-50 transition-all">
-                            <div class="ads-img w-12 h-12">
-                                <img src="https://via.placeholder.com/150" alt="R.Y.V. Allover Print Dress" class="mb-4 w-full object-cover rounded-lg">
-                            </div>
-                            <div class="ads-body">
-                                <h3 class="font-semibold">R.Y.V. Allover Print Dress</h3>
-                                <p>$82.50</p>
-                            </div>
-                        </a>
+        <div class="navbar border-b border-gray-200 px-24 py-2 fixed left-0 right-0 top-0 bg-white">
+            <div class="navbar-wrapper flex justify-between items-center">
+                <div class="navbar-left flex items-center gap-8">
+                    <a href="/" class="navbar-logo">
+                        <img class="w-8" src="{{ asset('images/logo/app-logo.png') }}" alt="logo.png">
+                    </a>
+                    <div class="navbar-links flex gap-6">
+                        <a href="/" id="all" class="navbar-link">All</a>
+                        <a href="/online" id="online" class="navbar-link">Online</a>
+                        <a href="/offline" id="offline" class="navbar-link">Offline</a>
                     </div>
                 </div>
-                <div class="orders mt-4">
-                    <div class="orders-title">
-                        <h1 class="font-bold text-xl mb-4">Order-an kamu</h1>
+
+                <div class="navbar-right flex items-center gap-4">
+                    <div class="search-input">
+                        <form action="">
+                            <input type="text" placeholder="Cari layanan..." class="navbar-search h-9 rounded-md border w-64 border-gray-300">
+                        </form>
                     </div>
-                    <div class="orders-list overflow-y-auto h-96 space-y-4 rounded-lg no-scrollbar">
-                        <a href="#" class="my-order-card flex items-center gap-4 border border-gray-200 rounded-lg p-2 hover:bg-gray-50 transition-all">
-                            <div class="ads-img w-12 h-12">
-                                <img src="https://via.placeholder.com/150" alt="Hao" class="mb-4 w-full object-cover rounded-lg">
-                            </div>
-                            <div class="ads-body">
-                                <h3 class="font-semibold">Hao</h3>
-                                {{-- @if ($order->status == 'done') --}}
-                                    <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Done</span>
-                                {{-- @elseif ($order->status == 'pending') --}}
-                                    <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Pending</span>
-                                {{-- @elseif ($order->status == 'on progress') --}}
-                                    <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">On progress</span>
-                                {{-- @elseif ($order->status == 'canceled') --}}
-                                    <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Canceled</span>
-                                {{-- @endif --}}
-                                {{-- @if ($order->status == 'done' || $order->status == 'canceled')
-                                    <form action="{{ route('orders.destroy', $order->id) }}" method="POST" class="inline-block ml-4">
+                    <a href="/cart" class="navbar-cart">
+                        <i class="fas fa-shopping-cart text-xl hover:transform hover:scale-125 transition-all"></i>
+                    </a>
+                    <a href="/chat" class="navbar-chat">
+                        <i class="fas fa-comment text-xl hover:transform hover:scale-125 transition-all"></i>
+                    </a>
+                    <div class="auth flex gap-2">
+                        @guest
+                            <!-- Tampilkan jika pengguna belum login -->
+                            <a href="{{ route('login') }}" class="navbar-login py-2 px-4 rounded-md">
+                                Login
+                            </a>
+                            <a href="{{ route('register') }}" class="navbar-register py-2 px-4 rounded-md bg-black text-white">
+                                Register
+                            </a>
+                        @else
+                            <!-- Tampilkan jika pengguna sudah login -->
+                            <div class="relative">
+                                <button id="profileButton" class="flex items-center py-2 px-4 rounded-md">
+                                    <img src="{{ asset('images/logo/app-logo.png') }}" alt="Profile Photo" class="w-8 h-8 rounded-full">
+                                </button>
+                                <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md border border-gray-300 shadow-lg z-10">
+                                    <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        <i class="fas fa-user mr-2"></i>
+                                        My Profile
+                                    </a>
+                                    <a href="/cart" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        <i class="fas fa-shopping-cart mr-2"></i>
+                                        Cart
+                                    </a>
+                                    <form method="POST" action="{{ route('logout') }}">
                                         @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
+                                        <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-red-500">
+                                            <i class="fas fa-sign-out-alt mr-2"></i>
+                                            Logout
+                                        </button>
                                     </form>
-                                @endif --}}
+                                </div>
                             </div>
-                        </a>
+                        @endguest
                     </div>
                 </div>
             </div>
         </div>
 
+        <div class="main-content px-24 pt-[70px]">
+            {{ $slot }}
+        </div>
+
+        <footer class="bg-black text-white py-8 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center">
+                    <div class="footer-left flex items-center gap-8">
+                        <a href="/" class="footer-logo">
+                            <img class="w-8" src="{{ asset('images/logo/app-logo-black.png') }}" alt="logo.png">
+                        </a>
+                        <div class="footer-links flex gap-6">
+                            <a href="/" class="footer-link">Home</a>
+                            <a href="/about" class="footer-link">About Us</a>
+                            <a href="/contact" class="footer-link">Contact Us</a>
+                            <a href="/privacy" class="footer-link">Privacy Policy</a>
+                        </div>
+                    </div>
+                    <div class="footer-right flex items-center gap-4">
+                        <a href="https://www.facebook.com" target="_blank" class="footer-social">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" class="footer-social">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" class="footer-social">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" class="footer-social">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom text-center mt-8">
+                    <p>&copy; 2024 Nativefy. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
 
         <script src="https://kit.fontawesome.com/cff8b87f33.js" crossorigin="anonymous"></script>
         <script>
-            // Function to set the active link based on the current URL
             function setActiveLink() {
                 const currentPath = window.location.pathname;
                 const allLink = document.getElementById('all');
                 const onlineLink = document.getElementById('online');
                 const offlineLink = document.getElementById('offline');
 
-                // Remove active class from all links
                 allLink.classList.remove('active');
                 onlineLink.classList.remove('active');
                 offlineLink.classList.remove('active');
 
-                // Add active class to the current link
                 if (currentPath === '/') {
                     allLink.classList.add('active');
                 } else if (currentPath.includes('/online')) {
@@ -112,10 +143,27 @@
                 }
             }
 
-            // Call the function on page load
             window.onload = setActiveLink;
 
         </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var profileButton = document.getElementById('profileButton');
+        var dropdownMenu = document.getElementById('dropdownMenu');
+
+        profileButton.addEventListener('click', function () {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!profileButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+    });
+    </script>
+
 
     </body>
 </html>

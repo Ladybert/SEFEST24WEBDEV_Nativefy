@@ -22,12 +22,12 @@
         </li>
     </ul>
 
-    <ul class="flex flex-col items-center gap-8">
+    <ul class="flex flex-col items-center gap-8 justify-center">
         <li>
             <a href="/profile">
                 <div class="avatar">
-                    <div class="w-10 rounded-full">
-                        <img src="https://t3.ftcdn.net/jpg/02/33/46/24/360_F_233462402_Fx1yke4ng4GA8TJikJZoiATrkncvW6Ib.jpg" />
+                    <div class="w-10 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user"></i>
                     </div>
                 </div>
             </a>
@@ -54,7 +54,7 @@
             </a>
         </li>
         <li class="w-1/5 text-center">
-            <a href="/chat/home" class="p-3 block {{ request()->is('chat/home') || request()->is('chat')s ? 'border-b-4 border-black' : '' }}">
+            <a href="/chat/home" class="p-3 block {{ request()->is('chat/home') || request()->is('chat') ? 'border-b-4 border-black' : '' }}">
                 <i class="fas fa-comment"></i>
             </a>
         </li>
@@ -62,7 +62,7 @@
             <a href="/profile" class="p-3 block">
                 <div class="avatar inline-block">
                     <div class="w-6 rounded-full">
-                        <img src="https://t3.ftcdn.net/jpg/02/33/46/24/360_F_233462402_Fx1yke4ng4GA8TJikJZoiATrkncvW6Ib.jpg" />
+                        <i class="fas fa-user"></i>
                     </div>
                 </div>
             </a>
