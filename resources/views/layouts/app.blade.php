@@ -1,76 +1,221 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Nativefy - Marketplace Jasa Andalan Anak Muda') }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <style>
-        </style>
-    </head>
-    <body class="font-sans antialiased">
-    <!-- Sidebar -->
-        <div class="flex">
-            <div class="w-1/8 bg-white h-screen p-4 fixed border border-r-gray-10 flex flex-col justify-between">
-                <div class="flex items-center space-x-2 mb-8">
-                    <div class="bg-gray-800 p-2 rounded-full">
-                        <i class="fas fa-box text-white"></i>
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <header>
+        <div class="navbar border-b border-gray-200 px-4 py-2 fixed left-0 right-0 top-0 bg-white z-50">
+            <div class="navbar-wrapper flex justify-between items-center">
+                <!-- Desktop Navbar -->
+                <div class="hidden lg:flex lg:items-center lg:gap-8">
+                    <a href="/" class="navbar-logo">
+                        <img class="w-8" src="{{ asset('images/logo/app-logo.png') }}" alt="logo.png">
+                    </a>
+                    <div class="navbar-links flex gap-6">
+                        <a href="/" id="all" class="navbar-link">All</a>
+                        <a href="/online" id="online" class="navbar-link">Online</a>
+                        <a href="/offline" id="offline" class="navbar-link">Offline</a>
                     </div>
                 </div>
-                <ul class="spac-4">
-                    <li><a href="#" class="text-gray-700 hover:text-gray-900 flex items-center"><i class="fas fa-store mr-2"></i></a></li>
-                    <li><a href="#" class="text-gray-700 hover:text-gray-900 flex items-center"><i class="fas fa-puzzle-piece mr-2"></i> </a></li>
-                </ul>
-                <ul class="spac-4">
-                    <li><a href="#" class="text-gray-700 hover:text-gray-900 flex items-center"><i class="fas fa-store mr-2"></i></a></li>
-                    <li><a href="#" class="text-gray-700 hover:text-gray-900 flex items-center"><i class="fas fa-puzzle-piece mr-2"></i> </a></li>
-                </ul>
-            </div>
 
-        <!-- Main Content -->
-            <div class="w-4/6 p-5 ps-20 bg-white">
-                {{ $slot }}
-            </div>
+                <div class="navbar-right flex items-center gap-4">
+                    <div class="search-input hidden lg:block">
+                        <form action="">
+                            <input type="text" placeholder="Cari layanan..." class="navbar-search h-9 rounded-md border w-64 border-gray-300">
+                        </form>
+                    </div>
+                    <a href="/cart" class="navbar-cart">
+                        <i class="fas fa-shopping-cart text-xl hover:transform hover:scale-125 transition-all"></i>
+                    </a>
+                    <a href="/chat" class="navbar-chat">
+                        <i class="fas fa-comment text-xl hover:transform hover:scale-125 transition-all"></i>
+                    </a>
+                    <div class="auth flex gap-2">
+                        @guest
+                            <a href="{{ route('login') }}" class="navbar-login py-2 px-4 rounded-md">
+                                Login
+                            </a>
+                            <a href="{{ route('register') }}" class="navbar-register py-2 px-4 rounded-md bg-black text-white">
+                                Register
+                            </a>
+                        @else
+                            <div class="relative">
+                                <button id="profileButton" class="flex items-center py-2 px-4 rounded-md">
+                                    <img src="{{ asset('images/logo/app-logo.png') }}" alt="Profile Photo" class="w-8 h-8 rounded-full">
+                                </button>
+                                <div id="dropdownMenu" class="hidden absolute right-0 mt-4 w-48 bg-white rounded-md border border-gray-300 z-10">
+                                    <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        <i class="fas fa-user mr-2"></i>
+                                        My Profile
+                                    </a>
+                                    <a href="/cart" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        <i class="fas fa-shopping-cart mr-2"></i>
+                                        Cart
+                                    </a>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-red-500">
+                                            <i class="fas fa-sign-out-alt mr-2"></i>
+                                            Logout
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        @endguest
+                    </div>
+                </div>
 
-        <!-- Order List -->
-            <div class="w-2/6 bg-white h-screen p-4 fixed right-0 border border-l-gray-100">
-            <div class="mb-8">
-                <div class="bg-orange-500 p-2 rounded-full mb-4">
-                    <i class="fas fa-wallet text-white"></i>
-                </div>
-                <div class="text-center">
-                    <p class="text-xl font-bold">Balance</p>
-                    <p class="text-2xl">$1280.00</p>
-                </div>
-            </div>
-            <div class="space-y-4">
-                <div class="flex justify-between items-center">
-                    <span class="text-gray-700">Nike Sportswear</span>
-                    <span class="text-gray-700">$82.50</span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <span class="text-gray-700">Comfort Plus Tee</span>
-                    <span class="text-gray-700">$60.00</span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <span class="text-gray-700">Essentials Linear</span>
-                    <span class="text-gray-700">$94.80</span>
-                </div>
-            </div>
-            <div class="mt-8">
-                <button class="w-full bg-black text-white px-6 py-2 rounded-lg">Check Out</button>
-            </div>
+                <!-- Mobile Navbar Toggle Button -->
+                <button id="mobileMenuButton" class="lg:hidden flex items-center text-gray-800">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
         </div>
 
-        <script src="https://kit.fontawesome.com/cff8b87f33.js" crossorigin="anonymous"></script>
-    </body>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center p-4 border-b border-gray-200">
+                <a href="/" class="navbar-logo">
+                    <img class="w-8" src="{{ asset('images/logo/app-logo.png') }}" alt="logo.png">
+                </a>
+                <button id="closeMobileMenu" class="text-gray-800">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <nav class="p-4">
+                <a href="/" id="allMobile" class="block py-2 text-lg">All</a>
+                <a href="/online" id="onlineMobile" class="block py-2 text-lg">Online</a>
+                <a href="/offline" id="offlineMobile" class="block py-2 text-lg">Offline</a>
+                <div class="mt-4">
+                    <a href="/cart" class="block py-2 text-lg">
+                        <i class="fas fa-shopping-cart mr-2"></i> Cart
+                    </a>
+                    <a href="/chat" class="block py-2 text-lg">
+                        <i class="fas fa-comment mr-2"></i> Chat
+                    </a>
+                    @guest
+                        <a href="{{ route('login') }}" class="block py-2 text-lg">Login</a>
+                        <a href="{{ route('register') }}" class="block py-2 text-lg bg-black text-white">Register</a>
+                    @else
+                        <a href="/profile" class="block py-2 text-lg">
+                            <i class="fas fa-user mr-2"></i> My Profile
+                        </a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="block w-full py-2 text-left text-lg text-red-500">
+                                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                            </button>
+                        </form>
+                    @endguest
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content px-4 pt-16 lg:px-24 lg:pt-[70px]">
+        {{ $slot }}
+    </div>
+
+    <footer class="bg-black text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="footer-left flex items-center gap-8">
+                    <a href="/" class="footer-logo">
+                        <img class="w-8" src="{{ asset('images/logo/app-logo-black.png') }}" alt="logo.png">
+                    </a>
+                    <div class="footer-links flex gap-6">
+                        <a href="/" class="footer-link">Home</a>
+                        <a href="/about" class="footer-link">About Us</a>
+                        <a href="/contact" class="footer-link">Contact Us</a>
+                        <a href="/privacy" class="footer-link">Privacy Policy</a>
+                    </div>
+                </div>
+                <div class="footer-right flex items-center gap-4">
+                    <a href="https://www.facebook.com" target="_blank" class="footer-social">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank" class="footer-social">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" class="footer-social">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank" class="footer-social">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom text-center mt-8">
+                <p>&copy; 2024 Nativefy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/cff8b87f33.js" crossorigin="anonymous"></script>
+    <script>
+        function setActiveLink() {
+            const currentPath = window.location.pathname;
+            const allLink = document.getElementById('all');
+            const onlineLink = document.getElementById('online');
+            const offlineLink = document.getElementById('offline');
+            const allMobileLink = document.getElementById('allMobile');
+            const onlineMobileLink = document.getElementById('onlineMobile');
+            const offlineMobileLink = document.getElementById('offlineMobile');
+
+            allLink.classList.remove('active');
+            onlineLink.classList.remove('active');
+            offlineLink.classList.remove('active');
+            allMobileLink.classList.remove('active');
+            onlineMobileLink.classList.remove('active');
+            offlineMobileLink.classList.remove('active');
+
+            if (currentPath === '/') {
+                allLink.classList.add('active');
+                allMobileLink.classList.add('active');
+            } else if (currentPath.includes('/online')) {
+                onlineLink.classList.add('active');
+                onlineMobileLink.classList.add('active');
+            } else if (currentPath.includes('/offline')) {
+                offlineLink.classList.add('active');
+                offlineMobileLink.classList.add('active');
+            }
+        }
+
+        window.onload = setActiveLink;
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var mobileMenuButton = document.getElementById('mobileMenuButton');
+            var closeMobileMenuButton = document.getElementById('closeMobileMenu');
+            var mobileMenu = document.getElementById('mobileMenu');
+
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.remove('-translate-x-full');
+            });
+
+            closeMobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.add('-translate-x-full');
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    mobileMenu.classList.add('-translate-x-full');
+                }
+            });
+        });
+    </script>
+</body>
 </html>

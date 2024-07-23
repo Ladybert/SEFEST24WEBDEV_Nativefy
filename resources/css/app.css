@@ -30,6 +30,7 @@ body {
 .header h1 {
     margin: 0;
 }
+
 .main {
     padding: 20px;
     max-width: 1200px;
@@ -83,4 +84,16 @@ body {
 }
 .cta button:hover {
     background-color: #e55c50;
+}
+.active {
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 8px;
+}
+
+.banner {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }

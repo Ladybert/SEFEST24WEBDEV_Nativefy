@@ -1,94 +1,84 @@
 <x-app-layout>
-            <!-- Header -->
-    <div class="flex justify-between items-center mb-8">
-        <div class="flex items-center space-x-4">
-            <a class="font-bold text-xl" href="#">Dashboard</a>
-            <a href="#">Dashboard</a>
-            <a href="#">Dashboard</a>
+    <div class="all-services">
+        <div class="banner bg-purple-200 rounded-xl mt-5 overflow-hidden">
+            <div class="banner-item w-full h-full">
+                <img src="{{ asset('images/banner/all-banner.png') }}" class="w-full h-full" alt="banner">
+            </div>
         </div>
-        <input type="text" class="p-2 border rounded-lg w-1/2" placeholder="Search for awesome">
-    </div>
-            <!-- Banner -->
-    <div class="bg-purple-200 p-8 rounded-lg mb-8 text-center relative">
-                    <h2 class="text-2xl font-bold mb-2">GET UP TO 60% SUMMER OFF</h2>
-                    <p>Start from 1 till 20 September 2020</p>
-                    <button class="mt-4 bg-black text-white px-6 py-2 rounded-full">Get it now</button>
-    </div>
-            <!-- Product Filters -->
-    <div class="flex justify-between items-center mb-8">
-                    <div class="flex space-x-4">
-                        <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Related</button>
-                        <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">New Arrival</button>
-                        <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Stock</button>
-                        <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Low Price</button>
-                        <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Best Seller</button>
+
+        <div class="up-service grid w-full grid-cols-2 gap-4 mt-4">
+            <div class="catgeory border border-gray-200 rounded-md p-3">
+                <div class="catgeory-title">
+                    <h1 class="text-xl font-semibold">Kategori Pilihan</h1>
+                </div>
+                <div class="grid grid-cols-2 gap-2 mt-3">
+                    <a href="/category/desain" class="flex items-center p-3 bg-orange-300 text-gray-800 rounded-lg hover:bg-orange-400 transition duration-300">
+                        <div class="flex-grow">
+                            <h2 class="text-md font-semibold">Desain</h2>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="/category/rumah-tangga" class="flex items-center p-3 bg-green-300 text-gray-800 rounded-lg hover:bg-green-400 transition duration-300">
+                        <div class="flex-grow">
+                            <h2 class="text-md font-semibold">Rumah Tangga</h2>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="/category/otomotif" class="flex items-center p-3 bg-yellow-300 text-gray-800 rounded-lg hover:bg-yellow-400 transition duration-300">
+                        <div class="flex-grow">
+                            <h2 class="text-md font-semibold">Otomotif</h2>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="/category/elektronik" class="flex items-center p-3 bg-blue-300 text-gray-800 rounded-lg hover:bg-blue-400 transition duration-300">
+                        <div class="flex-grow">
+                            <h2 class="text-md font-semibold">Elektronik</h2>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+            <div class="top-service rounded-md p-4">
+                <div class="service-title">
+                    <h1 class="text-xl font-semibold">Top Layanan di Surabaya</h1>
+                </div>
+                <div class="service-card-list">
+                </div>
+            </div>
+        </div>
+
+        <div class="services-list">
+            <div class="list-title mt-4">
+                <h1 class="text-2xl font-bold">Semua Layanan</h1>
+            </div>
+            <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 mt-4">
+                <a href="/checkout" class="bg-white rounded-lg transition duration-300 p-2 border hover:border-gray-300 border-white">
+                    @foreach($services as $service)
+                    <img src="{{ asset($service->service_photo) }}" alt="Product Image" class="w-full h-40 object-cover rounded-md ">
+                    <div class="card-body p-2">
+                        <h2 class="text-lg font-semibold mb-2">{{ $service->service_name }}</h2>
+                        <p class="text-gray-600 mb-2">{{ $service->price }}</p>
+                        <div class="flex items-center">
+                            <!-- Star Rating -->
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                        </div>
                     </div>
-    </div>
-            <!-- Products -->
-    <div class="grid grid-cols-4 gap-4">
-        <div class="bg-white p-4 rounded-lg shadow">
-            <img src="https://via.placeholder.com/150" alt="Adidas Tee Cartoon" class="mb-4 w-full h-48 object-cover rounded-lg">
-            <div class="flex justify-between items-center mb-2">
-                <h3 class="font-semibold">Adidas Tee Cartoon</h3>
-                <button class="text-gray-700"><i class="far fa-heart"></i></button>
+                    @endforeach
+                </a>
             </div>
-            <p class="text-gray-600">$32.50</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow">
-            <img src="https://via.placeholder.com/150" alt="Marvel Iron Man Tee" class="mb-4 w-full h-48 object-cover rounded-lg">
-            <div class="flex justify-between items-center mb-2">
-                <h3 class="font-semibold">Marvel Iron Man Tee</h3>
-                <button class="text-gray-700"><i class="far fa-heart"></i></button>
-            </div>
-            <p class="text-gray-600">$28.00</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow">
-            <img src="https://via.placeholder.com/150" alt="3-Stripes Tee Dress" class="mb-4 w-full h-48 object-cover rounded-lg">
-            <div class="flex justify-between items-center mb-2">
-                <h3 class="font-semibold">3-Stripes Tee Dress</h3>
-                <button class="text-gray-700"><i class="far fa-heart"></i></button>
-            </div>
-            <p class="text-gray-600">$43.00</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow">
-            <img src="https://via.placeholder.com/150" alt="R.Y.V. Allover Print Dress" class="mb-4 w-full h-48 object-cover rounded-lg">
-            <div class="flex justify-between items-center mb-2">
-                <h3 class="font-semibold">R.Y.V. Allover Print Dress</h3>
-                <button class="text-gray-700"><i class="far fa-heart"></i></button>
-            </div>
-            <p class="text-gray-600">$82.50</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow">
-            <img src="https://via.placeholder.com/150" alt="R.Y.V. Allover Print Dress" class="mb-4 w-full h-48 object-cover rounded-lg">
-            <div class="flex justify-between items-center mb-2">
-                <h3 class="font-semibold">R.Y.V. Allover Print Dress</h3>
-                <button class="text-gray-700"><i class="far fa-heart"></i></button>
-            </div>
-            <p class="text-gray-600">$82.50</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow">
-            <img src="https://via.placeholder.com/150" alt="R.Y.V. Allover Print Dress" class="mb-4 w-full h-48 object-cover rounded-lg">
-            <div class="flex justify-between items-center mb-2">
-                <h3 class="font-semibold">R.Y.V. Allover Print Dress</h3>
-                <button class="text-gray-700"><i class="far fa-heart"></i></button>
-            </div>
-            <p class="text-gray-600">$82.50</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow">
-            <img src="https://via.placeholder.com/150" alt="R.Y.V. Allover Print Dress" class="mb-4 w-full h-48 object-cover rounded-lg">
-            <div class="flex justify-between items-center mb-2">
-                <h3 class="font-semibold">R.Y.V. Allover Print Dress</h3>
-                <button class="text-gray-700"><i class="far fa-heart"></i></button>
-            </div>
-            <p class="text-gray-600">$82.50</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow">
-            <img src="https://via.placeholder.com/150" alt="R.Y.V. Allover Print Dress" class="mb-4 w-full h-48 object-cover rounded-lg">
-            <div class="flex justify-between items-center mb-2">
-                <h3 class="font-semibold">R.Y.V. Allover Print Dress</h3>
-                <button class="text-gray-700"><i class="far fa-heart"></i></button>
-            </div>
-            <p class="text-gray-600">$82.50</p>
         </div>
     </div>
 </x-app-layout>
