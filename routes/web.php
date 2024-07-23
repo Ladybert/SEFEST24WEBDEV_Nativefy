@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [ServiceController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [ServiceController::class, 'index'])->name('dashboard');
 
 Route::get('/online', function () {
     return view('services/online/index');
@@ -15,6 +15,9 @@ Route::get('/offline', function () {
 })->middleware(['auth', 'verified'])->name('offline');
 
 Route::get('/offline/category', function () {
+    return view('services/offline/category');
+})->middleware(['auth', 'verified'])->name('category');
+Route::get('/online/category', function () {
     return view('services/offline/category');
 })->middleware(['auth', 'verified'])->name('category');
 

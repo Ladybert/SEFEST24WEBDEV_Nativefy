@@ -1,12 +1,12 @@
 <x-app-layout>
     <div class="all-services">
-        <div class="banner bg-purple-200 rounded-xl mt-5 overflow-hidden">
-            <div class="banner-item w-full h-full">
+        <div class="banner-hero bg-purple-200 rounded-xl mt-5 overflow-hidden">
+            <div class="banner-hero-item w-full h-full">
                 <img src="{{ asset('images/banner/all-banner.png') }}" class="w-full h-full" alt="banner">
             </div>
         </div>
 
-        <div class="up-service grid w-full grid-cols-2 gap-4 mt-4">
+        <div class="up-service grid w-full grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             <div class="catgeory border border-gray-200 rounded-md p-3">
                 <div class="catgeory-title">
                     <h1 class="text-xl font-semibold">Kategori Pilihan</h1>
@@ -47,11 +47,17 @@
                 </div>
 
             </div>
-            <div class="top-service rounded-md p-4">
-                <div class="service-title">
-                    <h1 class="text-xl font-semibold">Top Layanan di Surabaya</h1>
+            <div class="relative overflow-hidden rounded-lg">
+                <div class="title">
+                    <h1 class="text-xl mb-4 font-semibold">Kenapa Nativefy?</h1>
                 </div>
-                <div class="service-card-list">
+                <div class="flex transition-transform duration-1000 ease-in-out" id="carousel">
+                    <div class="flex-shrink-0 w-full rounded-md">
+                        <img src="{{ asset('images/banner/online-banner.png') }}" alt="Online Banner" class="w-full rounded-md">
+                    </div>
+                    <div class="flex-shrink-0 w-full rounded-md">
+                        <img src="{{ asset('images/banner/offline-banner.png') }}" alt="Offline Banner" class="w-full rounded-md">
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,7 +66,7 @@
             <div class="list-title mt-4">
                 <h1 class="text-2xl font-bold">Semua Layanan</h1>
             </div>
-            <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 mt-4">
+            <div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 mt-4">
                 @foreach($services as $service)
                 <a href="/checkout" class="bg-white rounded-lg transition duration-300 p-2 border hover:border-gray-300 border-white">
                     <img src="{{ asset($service->service_photo) }}" alt="Product Image" class="w-full h-40 object-cover rounded-md ">

@@ -14,9 +14,18 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
+        @layer utilities {
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;  /* Firefox */
+            }
+        }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased h-screen">
     <header>
         <div class="navbar border-b border-gray-200 px-4 py-2 fixed left-0 right-0 top-0 bg-white z-50">
             <div class="navbar-wrapper flex justify-between items-center">
@@ -126,7 +135,7 @@
         </div>
     </header>
 
-    <div class="main-content px-4 pt-16 lg:px-24 lg:pt-[70px]">
+    <div class="main-content px-2 md:px-4 pt-16 lg:px-24 lg:pt-[70px] flex-1">
         {{ $slot }}
     </div>
 
@@ -216,6 +225,23 @@
                 }
             });
         });
+
+        const carousel = document.getElementById('carousel');
+        const totalWidth = carousel.scrollWidth;
+        const itemWidth = carousel.children[0].clientWidth;
+        let currentIndex = 0;
+
+        function scrollCarousel() {
+            currentIndex = (currentIndex + 1) % carousel.children.length;
+            const offset = itemWidth * currentIndex;
+            carousel.style.transform = `translateX(-${offset}px)`;
+        }
+
+        setInterval(scrollCarousel, 3800);
     </script>
+
+
+
+
 </body>
 </html>
