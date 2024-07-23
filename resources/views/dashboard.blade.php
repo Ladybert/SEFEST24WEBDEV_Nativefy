@@ -1,39 +1,84 @@
 <x-app-layout>
-    <!-- Banner -->
-<div class="banner bg-purple-200  rounded-xl mb-8 mt-5 overflow-hidden">
-    <div class="banner-item w-full h-full">
-        <img src="{{ asset('images/banner/all-banner.png') }}" class="w-full h-full" alt="banner">
-    </div>
-</div>
-    <!-- Product Filters -->
-<div class="flex justify-between items-center mb-8">
-    <div class="flex space-x-4 overflow-x-auto no-scrollbar">
-        <a href="/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">All</a>
-        <a href="/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Creative</a>
-        <a href="/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">New Arrival</a>
-        <a href="/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Stock</a>
-        <a href="/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Low Price</a>
-        <a href="/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Best Seller</a>
-    </div>
-</div>
-    <!-- Products -->
-<div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
-    @foreach($services as $service)
-    <a href="{{ route('checkout') }}" class="hover:scale-105 transition-all">
-        <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
-            <!-- Check if service_photo is not null -->
-            @if($service->service_photo)
-                <img src="{{ asset('storage/' . $service->service_photo) }}" alt="{{ $service->service_name }}" class="mb-4 w-full h-48 object-cover rounded-lg">
-            @else
-                <img src="https://via.placeholder.com/400x300" alt="Placeholder Image" class="mb-4 w-full h-48 object-cover rounded-lg">
-            @endif
-            <div class="p-4">
-                <h3 class="font-semibold text-lg mb-2">{{ $service->service_name }}</h3>
-                <p class="text-gray-600 mb-4">{{ $service->service_desc }}</p>
-                <p class="text-gray-800 font-semibold">Rp. {{ number_format($service->price, 0, ',', '.') }}</p>
+    <div class="all-services">
+        <div class="banner bg-purple-200 rounded-xl mt-5 overflow-hidden">
+            <div class="banner-item w-full h-full">
+                <img src="{{ asset('images/banner/all-banner.png') }}" class="w-full h-full" alt="banner">
             </div>
         </div>
-    </a>
-@endforeach
-</div>
+
+        <div class="up-service grid w-full grid-cols-2 gap-4 mt-4">
+            <div class="catgeory border border-gray-200 rounded-md p-3">
+                <div class="catgeory-title">
+                    <h1 class="text-xl font-semibold">Kategori Pilihan</h1>
+                </div>
+                <div class="grid grid-cols-2 gap-2 mt-3">
+                    <a href="/category/desain" class="flex items-center p-3 bg-orange-300 text-gray-800 rounded-lg hover:bg-orange-400 transition duration-300">
+                        <div class="flex-grow">
+                            <h2 class="text-md font-semibold">Desain</h2>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="/category/rumah-tangga" class="flex items-center p-3 bg-green-300 text-gray-800 rounded-lg hover:bg-green-400 transition duration-300">
+                        <div class="flex-grow">
+                            <h2 class="text-md font-semibold">Rumah Tangga</h2>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="/category/otomotif" class="flex items-center p-3 bg-yellow-300 text-gray-800 rounded-lg hover:bg-yellow-400 transition duration-300">
+                        <div class="flex-grow">
+                            <h2 class="text-md font-semibold">Otomotif</h2>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="/category/elektronik" class="flex items-center p-3 bg-blue-300 text-gray-800 rounded-lg hover:bg-blue-400 transition duration-300">
+                        <div class="flex-grow">
+                            <h2 class="text-md font-semibold">Elektronik</h2>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+            <div class="top-service rounded-md p-4">
+                <div class="service-title">
+                    <h1 class="text-xl font-semibold">Top Layanan di Surabaya</h1>
+                </div>
+                <div class="service-card-list">
+                </div>
+            </div>
+        </div>
+
+        <div class="services-list">
+            <div class="list-title mt-4">
+                <h1 class="text-2xl font-bold">Semua Layanan</h1>
+            </div>
+            <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 mt-4">
+                <a href="/checkout" class="bg-white rounded-lg transition duration-300 p-2 border hover:border-gray-300 border-white">
+                    @foreach($services as $service)
+                    <img src="{{ asset($service->service_photo) }}" alt="Product Image" class="w-full h-40 object-cover rounded-md ">
+                    <div class="card-body p-2">
+                        <h2 class="text-lg font-semibold mb-2">{{ $service->service_name }}</h2>
+                        <p class="text-gray-600 mb-2">{{ $service->price }}</p>
+                        <div class="flex items-center">
+                            <!-- Star Rating -->
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                        </div>
+                    </div>
+                    @endforeach
+                </a>
+            </div>
+        </div>
+    </div>
 </x-app-layout>

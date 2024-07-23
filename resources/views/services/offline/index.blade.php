@@ -1,32 +1,26 @@
 <x-app-layout>
-    <!-- Banner -->
-<div class="banner bg-purple-200  rounded-xl mb-8 mt-5 overflow-hidden">
-    <div class="banner-item w-full h-full">
-        <img src="{{ asset('images/banner/offline-banner.png') }}" class="w-full h-full" alt="banner">
-    </div>
-</div>
-    <!-- Product Filters -->
-<div class="flex justify-between items-center mb-8">
-    <div class="flex space-x-4 overflow-x-auto no-scrollbar">
-        <a href="offline/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Creative</a>
-        <a href="offline/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">New Arrival</a>
-        <a href="offline/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Stock</a>
-        <a href="offline/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Low Price</a>
-        <a href="offline/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Best Seller</a>
-    </div>
-</div>
-    <!-- Products -->
-<div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
-    <a href="/checkout" class="hover:scale-105 transition-all">
-        <div class="card bg-white rounded-lg">
-            <div class="card-image w-full h-52 rounded-lg overflow-hidden">
-                <img src="https://placehold.co/600x400/000000/FFFFFF.png" class="w-full h-full object-cover" alt="product-1">
+    <div class="all-services">
+        <div class="services-list">
+            <div class="list-title mt-4">
+                <h1 class="text-2xl font-bold">Semua Layanan yang bersifat "Offline"</h1>
             </div>
-            <div class="flex justify-between items-center mb-1 mt-3">
-                <h3 class="font-semibold">Jasa pel pak surya</h3>
+            <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 mt-4">
+                <a href="/checkout" class="bg-white rounded-lg transition duration-300 p-2 border hover:border-gray-300 border-white">
+                    <img src="https://via.placeholder.com/250" alt="Product Image" class="w-full h-40 object-cover rounded-md ">
+                    <div class="card-body p-2">
+                        <h2 class="text-lg font-semibold mb-2">Jasa pel pak kris</h2>
+                        <p class="text-gray-600 mb-2">Rp20.000</p>
+                        <div class="flex items-center">
+                            <!-- Star Rating -->
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <p class="text-gray-600">Rp. 10.000,00</p>
         </div>
-    </a>
-</div>
+    </div>
 </x-app-layout>
