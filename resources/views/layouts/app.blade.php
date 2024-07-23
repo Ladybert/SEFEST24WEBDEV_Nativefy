@@ -55,9 +55,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="$">
-                            <i><i class="fas fa-sign-out-alt"></i></i>
-                        </a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-responsive-nav-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </x-responsive-nav-link>
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -70,7 +75,7 @@
                         <a id="online" class="nav-link hover:underline-offset-8 hover:underline transition-all" href="/online">Online</a>
                         <a id="offline" class="nav-link hover:underline-offset-8 hover:underline transition-all" href="/offline">Offline</a>
                     </div>
-                    <input type="text" class="p-2 border rounded-xl w-1/2" placeholder="Search for awesome">
+                    <x-search-bar :searchTerm="$searchTerm ?? ''" />
                 </div>
                 {{ $slot }}
             </div>
@@ -84,11 +89,11 @@
                     <div class="ads-list overflow-y-auto h-96 space-y-4 rounded-lg no-scrollbar">
                         <a href="#" class="ads-card flex items-center gap-4 border border-gray-200 rounded-lg p-2 hover:bg-gray-50 transition-all">
                             <div class="ads-img w-12 h-12">
-                                <img src="https://via.placeholder.com/150" alt="R.Y.V. Allover Print Dress" class="mb-4 w-full object-cover rounded-lg">
+                                <img src="images/cleaning-service.jpg" alt="R.Y.V. Allover Print Dress" class="mb-4 w-full object-cover rounded-lg">
                             </div>
                             <div class="ads-body">
-                                <h3 class="font-semibold">R.Y.V. Allover Print Dress</h3>
-                                <p>$82.50</p>
+                                <h3 class="font-semibold">Cleaning Service</h3>
+                                <p>Rp 1.000.000</p>
                             </div>
                         </a>
                     </div>
@@ -100,10 +105,10 @@
                     <div class="orders-list overflow-y-auto h-96 space-y-4 rounded-lg no-scrollbar">
                         <a href="#" class="my-order-card flex items-center gap-4 border border-gray-200 rounded-lg p-2 hover:bg-gray-50 transition-all">
                             <div class="ads-img w-12 h-12">
-                                <img src="https://via.placeholder.com/150" alt="Hao" class="mb-4 w-full object-cover rounded-lg">
+                                <img src="images/cleaning-service.jpg" alt="Cleaning Service" class="mb-4 w-full object-cover rounded-lg">
                             </div>
                             <div class="ads-body">
-                                <h3 class="font-semibold">Hao</h3>
+                                <h3 class="font-semibold">Cleaning Service</h3>
                                 {{-- @if ($order->status == 'done') --}}
                                     <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Done</span>
                                 {{-- @elseif ($order->status == 'pending') --}}
