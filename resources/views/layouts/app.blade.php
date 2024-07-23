@@ -25,7 +25,7 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased h-screen">
+<body class="font-sans antialiased h-screen bg-white relative">
     <header>
         <div class="navbar border-b border-gray-200 px-4 py-2 fixed left-0 right-0 top-0 bg-white z-50">
             <div class="navbar-wrapper flex justify-between items-center">
@@ -129,11 +129,13 @@
         </div>
     </header>
 
-    <div class="main-content px-2 md:px-4 pt-16 lg:px-24 lg:pt-[70px] flex-1">
-        {{ $slot }}
-    </div>
+    <main>
+        <div class="main-content px-4 md:px-4 pt-16 lg:px-24 lg:pt-[70px] mx-16">
+            {{ $slot }}
+        </div>
+    </main>
 
-    <footer class="bg-black text-white py-8 mt-12">
+    <footer class="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white py-8 mt-12">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
                 <div class="footer-left flex items-center gap-8">
