@@ -4,6 +4,20 @@
             <div class="list-title mt-4">
                 <h1 class="text-2xl font-bold">Semua Layanan yang bersifat "Offline"</h1>
             </div>
+
+            <div class="category-selector overflow-x-auto mt-4 py-2">
+                <div class="flex space-x-4">
+                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 1</a>
+                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 2</a>
+                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 3</a>
+                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 4</a>
+                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 5</a>
+                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 6</a>
+                    <a href="/category" class="bg-tanspatrent hover:bg-black text-black hover:text-white px-4 py-2 rounded-lg border border-black">Kategori 7</a>
+                    <!-- Add more categories as needed -->
+                </div>
+            </div>
+
             <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 mt-4">
                 <a href="/checkout" class="bg-white rounded-lg transition duration-300 p-2 border hover:border-gray-300 border-white">
                     <img src="https://via.placeholder.com/250" alt="Product Image" class="w-full h-40 object-cover rounded-md ">

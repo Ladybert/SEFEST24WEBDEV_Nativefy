@@ -1,12 +1,12 @@
 <x-app-layout>
     <div class="all-services">
-        <div class="banner bg-purple-200 rounded-xl mt-5 overflow-hidden">
-            <div class="banner-item w-full h-full">
+        <div class="banner-hero bg-purple-200 rounded-xl mt-5 overflow-hidden">
+            <div class="banner-hero-item w-full h-full">
                 <img src="{{ asset('images/banner/all-banner.png') }}" class="w-full h-full" alt="banner">
             </div>
         </div>
 
-        <div class="up-service grid w-full grid-cols-2 gap-4 mt-4">
+        <div class="up-service grid w-full grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             <div class="catgeory border border-gray-200 rounded-md p-3">
                 <div class="catgeory-title">
                     <h1 class="text-xl font-semibold">Kategori Pilihan</h1>
@@ -47,11 +47,17 @@
                 </div>
 
             </div>
-            <div class="top-service rounded-md p-4">
-                <div class="service-title">
-                    <h1 class="text-xl font-semibold">Top Layanan di Surabaya</h1>
+            <div class="relative overflow-hidden rounded-lg">
+                <div class="title">
+                    <h1 class="text-xl mb-4 font-semibold">Kenapa Nativefy?</h1>
                 </div>
-                <div class="service-card-list">
+                <div class="flex transition-transform duration-1000 ease-in-out" id="carousel">
+                    <div class="flex-shrink-0 w-full rounded-md">
+                        <img src="{{ asset('images/banner/online-banner.png') }}" alt="Online Banner" class="w-full rounded-md">
+                    </div>
+                    <div class="flex-shrink-0 w-full rounded-md">
+                        <img src="{{ asset('images/banner/offline-banner.png') }}" alt="Offline Banner" class="w-full rounded-md">
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,15 +66,14 @@
             <div class="list-title mt-4">
                 <h1 class="text-2xl font-bold">Semua Layanan</h1>
             </div>
-            <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 mt-4">
+            <div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 mt-4">
+                @foreach($services as $service)
                 <a href="/checkout" class="bg-white rounded-lg transition duration-300 p-2 border hover:border-gray-300 border-white">
-                    @foreach($services as $service)
                     <img src="{{ asset($service->service_photo) }}" alt="Product Image" class="w-full h-40 object-cover rounded-md ">
                     <div class="card-body p-2">
                         <h2 class="text-lg font-semibold mb-2">{{ $service->service_name }}</h2>
-                        <p class="text-gray-600 mb-2">{{ $service->price }}</p>
+                        <p class="text-gray-600 mb-2">Rp. {{ $service->price }}</p>
                         <div class="flex items-center">
-                            <!-- Star Rating -->
                             <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
                             <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
                             <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
@@ -76,8 +81,8 @@
                             <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.618 4.975a1 1 0 00.95.69h5.245c.969 0 1.372 1.24.588 1.81l-4.244 3.086a1 1 0 00-.364 1.118l1.618 4.975c.3.921-.755 1.688-1.538 1.118l-4.244-3.086a1 1 0 00-1.176 0l-4.244 3.086c-.783.57-1.838-.197-1.538-1.118l1.618-4.975a1 1 0 00-.364-1.118L2.596 9.402c-.784-.57-.381-1.81.588-1.81h5.245a1 1 0 00.95-.69l1.618-4.975z"/></svg>
                         </div>
                     </div>
-                    @endforeach
                 </a>
+                @endforeach
             </div>
         </div>
     </div>
