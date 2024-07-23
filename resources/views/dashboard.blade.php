@@ -2,18 +2,18 @@
     <!-- Banner -->
 <div class="banner bg-purple-200  rounded-xl mb-8 mt-5 overflow-hidden">
     <div class="banner-item w-full h-full">
-        <img src="{{ asset('images/banner-1.png') }}" class="w-full h-full" alt="banner">
+        <img src="{{ asset('images/banner/all-banner.png') }}" class="w-full h-full" alt="banner">
     </div>
 </div>
     <!-- Product Filters -->
 <div class="flex justify-between items-center mb-8">
     <div class="flex space-x-4 overflow-x-auto no-scrollbar">
-        <a href="#" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">All</a>
-        <a href="#" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Creative</a>
-        <a href="#" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">New Arrival</a>
-        <a href="#" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Stock</a>
-        <a href="#" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Low Price</a>
-        <a href="#" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Best Seller</a>
+        <a href="/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">All</a>
+        <a href="/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Creative</a>
+        <a href="/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">New Arrival</a>
+        <a href="/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Stock</a>
+        <a href="/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Low Price</a>
+        <a href="/category" class="bg-transparent border border-black hover:bg-black hover:text-white text-gray-700 lg:px-4 md:px-2 md:text-sm text-md py-2 px-4 rounded-lg transition-all">Best Seller</a>
     </div>
 </div>
     <!-- Products -->

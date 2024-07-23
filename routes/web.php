@@ -19,6 +19,7 @@ Route::get('/',[LandingpageController::class, 'index'])->name('landingpage.index
 Route::get('/', [SearchController::class, 'index'])->name('home');
 
 Route::get('/online', function () {
+<<<<<<< HEAD
     return view('home/online');
 })->name('online');
 
@@ -30,10 +31,26 @@ Route::get('/offline', function () {
 // Route::resource('online', OnlineController::class);
 
 // Route::resource('offline', OfflineController::class);
+=======
+    return view('services/online/index');
+})->middleware(['auth', 'verified'])->name('online');
+
+Route::get('/offline', function () {
+    return view('services/offline/index');
+})->middleware(['auth', 'verified'])->name('offline');
+>>>>>>> 36bcfb1ab9f48773928c48756aaf4a28056c7c64
+
+Route::get('/offline/category', function () {
+    return view('services/offline/category');
+})->middleware(['auth', 'verified'])->name('category');
 
 Route::get('/checkout', function () {
     return view('checkout/checkout');
 })->middleware(['auth', 'verified'])->name('checkout');
+
+Route::get('/cart', function () {
+    return view('cart');
+})->middleware(['auth', 'verified'])->name('cart');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
