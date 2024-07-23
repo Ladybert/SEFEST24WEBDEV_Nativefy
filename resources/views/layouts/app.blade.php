@@ -135,7 +135,7 @@
         </div>
     </main>
 
-    <footer class="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white py-8 mt-12">
+    <footer class="bg-white text-black border-t py-8 mt-12">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
                 <div class="footer-left flex items-center gap-8">
