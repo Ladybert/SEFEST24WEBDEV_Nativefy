@@ -12,6 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <style>
         </style>
@@ -32,7 +33,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="p-7">
+                        <a href="/cart" class="p-7">
                             <i class="fas fa-shopping-cart"></i>
                         </a>
                     </li>
@@ -126,6 +127,7 @@
             </div>
         </div>
 
+        
         <script src="https://kit.fontawesome.com/cff8b87f33.js" crossorigin="anonymous"></script>
         <script>
             // Function to set the active link based on the current URL
@@ -143,15 +145,16 @@
                 // Add active class to the current link
                 if (currentPath === '/') {
                     allLink.classList.add('active');
-                } else if (currentPath === '/online') {
+                } else if (currentPath.includes('/online')) {
                     onlineLink.classList.add('active');
-                } else if (currentPath === '/offline') {
+                } else if (currentPath.includes('/offline')) {
                     offlineLink.classList.add('active');
                 }
             }
 
             // Call the function on page load
             window.onload = setActiveLink;
+
         </script>
 
     </body>

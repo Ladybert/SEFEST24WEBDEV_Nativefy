@@ -15,6 +15,10 @@ Route::get('/offline', function () {
     return view('services/offline/index');
 })->middleware(['auth', 'verified'])->name('offline');
 
+Route::get('/offline/category', function () {
+    return view('services/offline/category');
+})->middleware(['auth', 'verified'])->name('category');
+
 Route::get('/checkout', function () {
     return view('checkout/checkout');
 })->middleware(['auth', 'verified'])->name('checkout');
