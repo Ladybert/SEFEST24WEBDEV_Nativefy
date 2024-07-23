@@ -1,11 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [ServiceController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/online', function () {
     return view('services/online/index');
