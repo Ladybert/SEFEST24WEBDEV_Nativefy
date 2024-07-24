@@ -125,7 +125,7 @@
         </div>
     </main>
 
-    <footer class="bg-white text-black border-t py-8 mt-12">
+    {{-- <footer class="bg-white text-black border-t py-8 mt-12">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
                 <div class="footer-left flex items-center gap-8">
@@ -150,7 +150,7 @@
                 <p>&copy; 2024 Nativefy. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+    </footer> --}}
 
     <script src="https://kit.fontawesome.com/cff8b87f33.js" crossorigin="anonymous"></script>
     <script>

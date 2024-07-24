@@ -6,10 +6,10 @@
             </a>
             <h1 class="text-2xl font-bold">Lihat jasa "Jasa pel pak kris"</h1>
         </div>
-        <div class="checkout-content w-full md:p-4 lg:p-8 ">
+        <div class="checkout-content w-full md:p-4">
             <div class="checkout-content-wrapper flex flex-col md:flex-col lg:flex-row h-screen gap-2 w-full">
                 <!-- Service Photo -->
-                <div class="service-photo w-full lg:w-2/4 lg:h-[600px] rounded-lg pt-4 md:pt-0">
+                <div class="service-photo w-full lg:w-3/4 lg:h-[600px] rounded-lg pt-4 md:pt-0">
                     <div class="image-wrapper w-full h-full relative">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4hG0toOw4r6Kj_oDdf_OmAxXYq5XbrTeNPA&s" alt="photo" class="w-full h-full object-cover object-center rounded-md">
                     </div>
@@ -89,7 +89,7 @@
                             </div>
                         </div>
                         <div class="checkout-button mt-4 w-full">
-                            <button type="button" id="open-modal" class="bg-black text-white hover:text-black hover:border hover:border-black py-2 px-4 rounded hover:bg-white transition-all w-full">Buat pesanan</button>
+                            <button type="button" id="open-modal" class="bg-black text-white hover:text-black hover:border hover:border-black py-2 px-4 rounded hover:bg-white transition-all w-full" onclick="alert('Pesanan anda sedang diproses.)">Buat pesanan</button>
                         </div>
                     </form>
                 </div>

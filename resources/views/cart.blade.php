@@ -1,62 +1,55 @@
 <x-app-layout>
-    <div class="page-header py-6">
-        <div class="header-wrapper container mx-auto px-4">
-            <div class="header-title text-center">
-                <h1 class="font-bold text-3xl mt-2">Keranjang Belanja</h1>
-            </div>
+    <div class="cart p-6">
+        <div class="cart-header mb-6">
+            <h1 class="text-2xl font-bold">Keranjang</h1>
         </div>
-    </div>
-
-    <div class="page-content mt-6">
-        <div class="content-wrapper container mx-auto px-4">
-            <div class="cart-list space-y-6">
-                <div class="cart-item flex flex-col md:flex-row items-center bg-white p-4 rounded-lg shadow-md border border-gray-300" data-aos="fade">
-                    <div class="cart-image w-32 h-32 md:w-48 md:h-48 flex-shrink-0 overflow-hidden rounded-lg shadow-sm">
-                        <img src="https://via.placeholder.com/128" alt="Product Image" class="w-full h-full object-cover">
-                    </div>
-                    <div class="cart-info flex-grow mt-4 md:mt-0 md:ml-6">
-                        <h1 class="product-name font-semibold text-lg text-gray-800">R.Y.V. Allover Print Dress</h1>
-                        <p class="product-price mt-2 text-xl font-medium text-gray-900">$99.99</p>
-                        <div class="cart-control flex mt-4 space-x-2">
-                            <form action="" method="delete" class="delete-form">
-                                <button type="button" class="cart-delete px-4 py-2 border border-red-500 rounded-lg text-red-500 hover:bg-red-500 hover:text-white transition-all">
-                                    <i class="fas fa-trash"></i>
-                                    <span class="sr-only">Hapus</span>
-                                </button>
-                            </form>
-                            <a href="/checkout" class="cart-order px-4 py-2 border border-gray-300 text-gray-800 hover:bg-gray-800 hover:text-white transition-all rounded-lg flex items-center">
-                                <i class="fas fa-shopping-cart mr-2"></i>
-                                Order lagi
-                            </a>
+        <div class="cart-content w-full flex flex-col lg:flex-row gap-6">
+            <!-- Left section: Cart Items -->
+            <div class="cart-items w-full lg:w-2/3">
+                <div class="empty-cart bg-white p-6 rounded-md shadow-sm mb-4">
+                    <div class="flex items-center gap-4">
+                        <div>
+                            <h2 class="text-lg font-semibold text-gray-700">Wah, keranjang belanjamu kosong</h2>
+                            <p class="text-gray-500">Yuk, isi dengan barang-barang impianmu!</p>
                         </div>
                     </div>
+                    <div class="mt-4">
+                        <a href="/" class="bg-green-500 text-white px-4 py-2 rounded-md text-center">Mulai Belanja</a>
+                    </div>
                 </div>
-
-                <!-- Tambahkan lebih banyak item di sini jika diperlukan -->
-
+                <div class="cannot-process bg-white p-6 rounded-md shadow-sm">
+                    <h2 class="text-lg font-semibold text-gray-700 mb-4">Tidak bisa diproses</h2>
+                    <div class="out-of-stock flex items-center justify-between p-4 border border-gray-300 rounded-md">
+                        <div class="flex items-center gap-4">
+                            <input type="checkbox" id="out-of-stock" class="form-checkbox h-4 w-4 text-gray-600">
+                            <label for="out-of-stock" class="text-gray-600">Stok Habis (1)</label>
+                        </div>
+                        <button class="text-red-500">Hapus (1)</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Right section: Order Summary -->
+            <div class="order-summary w-full lg:w-1/3 bg-white p-6 rounded-md shadow-sm">
+                <h2 class="text-lg font-semibold text-gray-700 mb-4">Ringkasan belanja</h2>
+                <div class="summary-item flex justify-between mb-2">
+                    <span class="text-gray-600">Total</span>
+                    <span class="text-gray-600">-</span>
+                </div>
+                <div class="promo bg-gray-100 p-4 rounded-md mb-4">
+                    <span class="text-green-500">Makin hemat pakai promo</span>
+                </div>
+                <button class="bg-gray-300 text-gray-500 px-4 py-2 rounded-md w-full text-center cursor-not-allowed">Beli</button>
             </div>
         </div>
     </div>
 </x-app-layout>
 
-<script>
-    document.querySelectorAll('.cart-delete').forEach(button => {
-        button.addEventListener('click', function() {
-            const form = this.closest('.delete-form');
-            Swal.fire({
-                title: 'Yakin hapus?',
-                text: "Anda tidak dapat mengembalikan layanan ini setelah dihapus!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6',
-                confirmButtonText: 'Ya, hapus!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit();
-                }
-            });
-        });
-    });
-</script>
+<style>
+    .empty-cart img {
+        width: 50px;
+        height: 50px;
+    }
+    .summary-item span {
+        color: #4a4a4a;
+    }
+</style>
