@@ -6,8 +6,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ServiceController::class, 'index'])->name('dashboard');
 
+
+
 Route::get('/online', function () {
     return view('services/online/index');
+})->middleware(['auth', 'verified'])->name('online');
+
+Route::get('/category/desain', function () {
+    return view('category/desain');
 })->middleware(['auth', 'verified'])->name('online');
 
 Route::get('/offline', function () {
@@ -17,12 +23,17 @@ Route::get('/offline', function () {
 Route::get('/offline/category', function () {
     return view('services/offline/category');
 })->middleware(['auth', 'verified'])->name('category');
+
 Route::get('/online/category', function () {
-    return view('services/offline/category');
+    return view('services/online/category');
 })->middleware(['auth', 'verified'])->name('category');
 
 Route::get('/checkout', function () {
     return view('checkout/checkout');
+})->middleware(['auth', 'verified'])->name('checkout');
+
+Route::get('/payment', function () {
+    return view('checkout/checkout-detail');
 })->middleware(['auth', 'verified'])->name('checkout');
 
 Route::get('/cart', function () {

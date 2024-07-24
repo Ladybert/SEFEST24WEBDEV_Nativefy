@@ -7,20 +7,16 @@
 
             <div class="category-selector overflow-x-auto mt-4">
                 <div class="flex gap-2">
-                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 1</a>
-                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 2</a>
-                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 3</a>
-                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 4</a>
-                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 5</a>
-                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 6</a>
-                    <a href="offline/category" class="border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all">Kategori 7</a>
+                    <a href="offline/category" class="border border-gray-600 px-2">Rumah tangga</a>
+                    <a href="offline/category" class="border border-gray-600 px-2">Elektronik</a>
+                    <a href="offline/category" class="border border-gray-600 px-2">Otomotif</a>
                     <!-- Add more categories as needed -->
                 </div>
             </div>
 
             <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 mt-4">
                 <a href="/checkout" class="bg-white rounded-lg transition duration-300 p-2 border hover:border-gray-300 border-white">
-                    <img src="https://via.placeholder.com/250" alt="Product Image" class="w-full h-40 object-cover rounded-md ">
+                    <img src="https://www.cleanipedia.com/images/5h1w0177knh8/6pHPXhtzFujtIBC4zY0z20/c63ec74bb4fe16cef9343221e85ce3a7/dGlwcy1tZW5nZXBlbC1sYW50YWkuanBn/1200w/orang-sedang-mengepel-lantai-dengan-ember-biru-di-sebelahnya..jpg" alt="Product Image" class="w-full h-40 object-cover rounded-md ">
                     <div class="card-body p-2">
                         <h2 class="text-lg font-semibold mb-2">Jasa pel pak kris</h2>
                         <p class="text-gray-600 mb-2">Rp20.000</p>

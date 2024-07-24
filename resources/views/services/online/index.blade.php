@@ -7,19 +7,14 @@
 
             <div class="category-selector overflow-x-auto mt-4 py-2">
                 <div class="flex space-x-4">
-                    <a href="/category" class="bg-transparent hover:bg-black text-black px-4 py-2 rounded-lg border border-black hover:text-white">Kategori 1</a>
-                    <a href="/category" class="bg-transparent hover:bg-black text-black px-4 py-2 rounded-lg border border-black hover:text-white">Kategori 2</a>
-                    <a href="/category" class="bg-transparent hover:bg-black text-black px-4 py-2 rounded-lg border border-black hover:text-white">Kategori 3</a>
-                    <a href="/category" class="bg-transparent hover:bg-black text-black px-4 py-2 rounded-lg border border-black hover:text-white">Kategori 4</a>
-                    <a href="/category" class="bg-transparent hover:bg-black text-black px-4 py-2 rounded-lg border border-black hover:text-white">Kategori 5</a>
-                    <a href="/category" class="bg-transparent hover:bg-black text-black px-4 py-2 rounded-lg border border-black hover:text-white">Kategori 6</a>
-                    <a href="/category" class="bg-transparent hover:bg-black text-black px-4 py-2 rounded-lg border border-black hover:text-white">Kategori 7</a>
+                    <a href="online/category" class="border border-gray-600">Desain</a>
+                    <a href="online/category" class="border border-gray-600">Data</a>
                 </div>
             </div>
 
             <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 mt-4">
                 <a href="/checkout" class="bg-white rounded-lg transition duration-300 p-2 border hover:border-gray-300 border-white">
-                    <img src="https://via.placeholder.com/250" alt="Product Image" class="w-full h-40 object-cover rounded-md ">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpW4ZyKa13CY2HGOjEapIa1_QKLl_Xjj9Qng&s" alt="Product Image" class="w-full h-40 object-cover rounded-md ">
                     <div class="card-body p-2">
                         <h2 class="text-lg font-semibold mb-2">Jasa desain kris</h2>
                         <p class="text-gray-600 mb-2">Rp20.000</p>

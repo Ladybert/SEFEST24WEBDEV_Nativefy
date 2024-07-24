@@ -31,12 +31,12 @@
 </head>
 <body class="font-sans antialiased h-screen bg-white relative">
     <header>
-        <nav class="navbar border-b border-gray-200 px-4 py-2 fixed left-0 right-0 top-0 bg-white z-50">
-            <div class="navbar-wrapper flex justify-between items-center">
+        <nav class="navbar border-b border-gray-200 px-4 py-2 fixed left-0 right-0 top-0 bg-white z-50 shadow-sm">
+            <div class="navbar-wrapper flex justify-between items-center max-w-7xl mx-auto">
                 <!-- Desktop Navbar -->
                 <div class="hidden lg:flex lg:items-center lg:gap-8">
                     <a href="/" class="navbar-logo">
-                        <img class="w-8" src="{{ asset('images/logo/app-logo.png') }}" alt="Nativefy Logo">
+                        <img class="w-10" src="{{ asset('images/logo/app-logo.png') }}" alt="Nativefy Logo">
                     </a>
                     <div class="navbar-links flex gap-6">
                         <a href="/" id="all" class="navbar-link">All</a>
@@ -45,27 +45,27 @@
                     </div>
                 </div>
 
-                <div class="navbar-right flex items-center gap-8">
+                <div class="navbar-right flex items-center gap-6">
                     <div class="search-input hidden lg:block">
                         <form action="/search" method="get">
-                            <input type="text" name="query" placeholder="Cari layanan..." class="navbar-search h-9 rounded-md border w-64 border-gray-300">
+                            <input type="text" name="query" placeholder="Cari layanan..." class="navbar-search h-9 rounded-md border w-64 border-gray-300 px-3">
                         </form>
                     </div>
-                    <a href="/cart" class="navbar-cart">
-                        <i class="fas fa-shopping-cart text-md hover:transform hover:scale-125 transition-all"></i>
+                    <a href="/cart" class="navbar-cart text-gray-800 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-shopping-cart text-lg"></i>
                     </a>
-                    <a href="/chat" class="navbar-chat">
-                        <i class="fas fa-comment text-md hover:transform hover:scale-125 transition-all"></i>
+                    <a href="/chat" class="navbar-chat text-gray-800 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-comment text-lg"></i>
                     </a>
-                    <div class="auth flex gap-2 relative">
+                    <div class="auth flex items-center gap-2 relative">
                         @guest
                             <a href="{{ route('login') }}" class="navbar-login py-2 px-4 rounded-md">Login</a>
-                            <a href="{{ route('register') }}" class="navbar-register py-2 px-4 rounded-md bg-black text-white">Register</a>
+                            <a href="{{ route('register') }}" class="navbar-register py-2 px-4 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors">Register</a>
                         @else
-                            <button id="profileButton" class="flex items-center py-2 px-4 rounded-md">
+                            <button id="profileButton" class="flex items-center py-2 px-4 rounded-md focus:outline-none">
                                 <img src="{{ asset('images/logo/app-logo.png') }}" alt="Profile Photo" class="w-8 h-8 rounded-full">
                             </button>
-                            <div id="dropdownMenu" class="hidden absolute right-0 mt-16 w-48 bg-white rounded-md border border-gray-300 z-10">
+                            <div id="dropdownMenu" class="hidden absolute right-0 mt-12 w-48 bg-white rounded-md border border-gray-300 z-10 shadow-lg">
                                 <a href="{{ url('/profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-user mr-2"></i> My Profile
                                 </a>
@@ -91,7 +91,7 @@
         <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
             <div class="flex justify-between items-center p-4 border-b border-gray-200">
                 <a href="/" class="navbar-logo">
-                    <img class="w-8" src="{{ asset('images/logo/app-logo.png') }}" alt="Nativefy Logo">
+                    <img class="w-10" src="{{ asset('images/logo/app-logo.png') }}" alt="Nativefy Logo">
                 </a>
                 <button id="closeMobileMenu" class="text-gray-800">
                     <i class="fas fa-times text-xl"></i>
@@ -120,39 +120,61 @@
     </header>
 
     <main>
-        <div class="main-content px-4 md:px-4 pt-16 lg:pt-[70px] mx-16">
+        <div class="main-content px-4 md:px-20 pt-20">
             {{ $slot }}
         </div>
     </main>
 
-    {{-- <footer class="bg-white text-black border-t py-8 mt-12">
+    <footer class="bg-gray-900 text-white py-8 mt-20">
         <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <div class="footer-left flex items-center gap-8">
-                    <a href="/" class="footer-logo">
-                        <img class="w-8" src="{{ asset('images/logo/app-logo-black.png') }}" alt="Nativefy Logo">
-                    </a>
-                    <div class="footer-links flex gap-6">
-                        <a href="/" class="footer-link">Home</a>
-                        <a href="/about" class="footer-link">About Us</a>
-                        <a href="/contact" class="footer-link">Contact Us</a>
-                        <a href="/privacy" class="footer-link">Privacy Policy</a>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div class="footer-about">
+                    <img src="{{ asset('images/logo/app-logo.png') }}" alt="Nativefy Logo" class="mb-4 w-10">
+                    <p class="text-gray-400">Nativefy adalah marketplace jasa yang andalan untuk anak muda. Temukan layanan terbaik untuk kebutuhan Anda.</p>
+                </div>
+                <div class="footer-links">
+                    <h3 class="text-lg font-semibold mb-4">Navigasi</h3>
+                    <ul>
+                        <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="/online" class="text-gray-400 hover:text-white transition-colors">Online</a></li>
+                        <li><a href="/offline" class="text-gray-400 hover:text-white transition-colors">Offline</a></li>
+                        <li><a href="/contact" class="text-gray-400 hover:text-white transition-colors">Kontak Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3 class="text-lg font-semibold mb-4">Kontak Kami</h3>
+                    <p class="text-gray-400">Email: support@nativefy.com</p>
+                    <p class="text-gray-400">Telepon: +62 812 3456 7890</p>
+                </div>
+                <div class="footer-social">
+                    <h3 class="text-lg font-semibold mb-4">Ikuti Kami</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <div class="footer-right flex items-center gap-4">
-                    <a href="https://www.facebook.com" target="_blank" class="footer-social"><i class="fab fa-facebook text-2xl"></i></a>
-                    <a href="https://www.twitter.com" target="_blank" class="footer-social"><i class="fab fa-twitter text-2xl"></i></a>
-                    <a href="https://www.instagram.com" target="_blank" class="footer-social"><i class="fab fa-instagram text-2xl"></i></a>
-                    <a href="https://www.linkedin.com" target="_blank" class="footer-social"><i class="fab fa-linkedin text-2xl"></i></a>
-                </div>
             </div>
-            <div class="footer-bottom text-center mt-8">
-                <p>&copy; 2024 Nativefy. All rights reserved.</p>
+            <div class="mt-8 border-t border-gray-700 pt-4 text-center text-gray-500">
+                &copy; 2024 Nativefy. All rights reserved.
             </div>
         </div>
-    </footer> --}}
+    </footer>
 
     <script src="https://kit.fontawesome.com/cff8b87f33.js" crossorigin="anonymous"></script>
+    <!-- Pastikan Anda sudah memuat GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+<script>
+    gsap.from(".navbar-logo", {
+        opacity: 0,
+        duration: 1,
+        y: -50,
+        ease: "power4.out"
+    });
+</script>
+
     <script>
         function setActiveLink() {
             const currentPath = window.location.pathname;

@@ -13,7 +13,12 @@
                     <div class="image-wrapper w-full h-full relative">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4hG0toOw4r6Kj_oDdf_OmAxXYq5XbrTeNPA&s" alt="photo" class="w-full h-full object-cover object-center rounded-md">
                     </div>
-
+                    <!-- Additional Thumbnails -->
+                    <div class="thumbnail-wrapper flex mt-2 gap-2">
+                        <img src="https://example.com/thumb1.jpg" alt="thumbnail1" class="w-16 h-16 object-cover object-center rounded-md border-2 border-green-500">
+                        <img src="https://example.com/thumb2.jpg" alt="thumbnail2" class="w-16 h-16 object-cover object-center rounded-md">
+                        <img src="https://example.com/thumb3.jpg" alt="thumbnail3" class="w-16 h-16 object-cover object-center rounded-md">
+                    </div>
                 </div>
                 <!-- Service Details -->
                 <div class="service-details w-full lg:w-2/3 p-4">
@@ -33,7 +38,7 @@
                     <!-- Service Price and Rating -->
                     <div class="service-price-rating items-center mb-4">
                         <!-- Price -->
-                        <h2 class="text-xl  mr-4">Rp 100.000</h2>
+                        <h2 class="text-xl mr-4">Rp 100.000</h2>
                         <div class="rating flex items-center gap-2 mt-2">
                             <p class="text-gray-700">(4.9/5.0)</p>
                             <div class="rating text-yellow-500">
@@ -47,8 +52,6 @@
                     </div>
                     <!-- Service Description -->
                     <div class="service-description mb-4 overflow-y-auto" style="max-height: 150px;">
-
-
                         <p class="text-gray-700">Deskripsi singkat tentang jasa pel yang ditawarkan oleh Pak Kris. Jasa ini mencakup pembersihan lantai, pengepelan, dan penanganan noda membandel. Layanan ini sangat cocok untuk rumah tangga dan kantor yang memerlukan kebersihan maksimal.</p>
                     </div>
 
@@ -60,7 +63,7 @@
                     </div>
                 </div>
                 <!-- Service Checkout -->
-                <div class="service-checkout w-full lg:w-[600px] lg:h-[600px] rounded-md ">
+                <div class="service-checkout w-full lg:w-[600px] lg:h-[600px] rounded-md">
                     <form action="" method="POST">
                         <div class="form-list border border-gray-200 rounded-lg p-4">
                             <div class="service-checkout-title mb-4">
@@ -89,7 +92,7 @@
                             </div>
                         </div>
                         <div class="checkout-button mt-4 w-full">
-                            <button type="button" id="open-modal" class="bg-black text-white hover:text-black hover:border hover:border-black py-2 px-4 rounded hover:bg-white transition-all w-full" onclick="alert('Pesanan anda sedang diproses.)">Buat pesanan</button>
+                            <button type="button" id="open-modal" class="bg-black text-white hover:text-black hover:border hover:border-black py-2 px-4 rounded hover:bg-white transition-all w-full" onclick="window.location.href='/payment'">Buat pesanan</button>
                         </div>
                     </form>
                 </div>
